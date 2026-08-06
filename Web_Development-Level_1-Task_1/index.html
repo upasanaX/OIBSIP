@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PlantPal is a smart plant care app landing page concept with AI identification, reminders, and disease detection." />
+  <title>PlantPal - Smart Plant Care App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="decorative-orb orb-1"></div>
+  <div class="decorative-orb orb-2"></div>
+  <div class="decorative-orb orb-3"></div>
+  <div class="leaf-float leaf-a" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path d="M50 9c-8 0-18 3-25 10S15 36 15 45c0 5 3 10 9 10 10 0 20-8 27-17 6-8 8-19 8-29-4 0-6 0-9 0Z" fill="rgba(76,175,80,0.65)"/>
+      <path d="M21 46c8-9 15-17 31-26" stroke="white" stroke-opacity="0.6" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="leaf-float leaf-b" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path d="M14 43c8 2 18-1 24-7s10-16 12-28C32 7 21 11 14 18S4 33 4 39c0 2 1 4 10 4Z" fill="rgba(165,214,167,0.95)"/>
+      <path d="M12 41c10-6 19-15 28-27" stroke="white" stroke-opacity="0.65" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="leaf-float leaf-c" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none">
+      <path d="M49 10c-12 2-23 11-28 22s-5 20 0 26c7-1 16-8 23-17 7-10 9-21 5-31Z" fill="rgba(76,175,80,0.55)"/>
+      <path d="M18 48c5-8 12-16 26-29" stroke="white" stroke-opacity="0.6" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#home" aria-label="PlantPal home">
+          <span class="brand-badge" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M17.5 4.2c-5.8.1-9.9 3.1-11.8 9-.5 1.5-.7 3.1-.7 4.7 2.5 0 4.7-.4 6.5-1.2 4.9-2.1 7.8-6 8.7-11.8-1-.4-1.8-.7-2.7-.7Z" fill="#2E7D32"/>
+              <path d="M7.5 17.2c3.8-4.6 7.7-7.8 11.8-9.6" stroke="#fff" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          PlantPal
+        </a>
+
+        <nav class="menu" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-primary desktop-cta" href="#contact">Get Started</a>
+          <details class="mobile-nav">
+            <summary aria-label="Toggle navigation">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                <path d="M4 7h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 17h16"/>
+              </svg>
+            </summary>
+            <div class="mobile-nav-panel">
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#features">Features</a>
+              <a href="#contact">Contact</a>
+              <a class="btn btn-primary" href="#contact">Get Started</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy reveal">
+            <div class="eyebrow">Smart care for every leaf</div>
+            <h1>Keep Every Plant Healthy with AI 🌿</h1>
+            <p>Identify plants instantly, receive personalized care reminders, detect diseases early, and monitor growth—all in one smart app.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get Started</a>
+              <a class="btn btn-secondary" href="#features">Learn More</a>
+            </div>
+            <div class="hero-points" aria-label="Key benefits">
+              <span class="chip">AI plant scans</span>
+              <span class="chip">Watering reminders</span>
+              <span class="chip">Growth tracking</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal delay-1" aria-label="PlantPal smartphone mockup">
+            <div class="floating-card float-1">🌱 98% plant health score</div>
+            <div class="floating-card float-2">💧 Water in 2 days</div>
+            <div class="floating-card float-3">🔎 AI scan ready</div>
+
+            <div class="mockup-shell">
+              <div class="mockup-screen">
+                <div class="notch"></div>
+                <div class="mockup-content">
+                  <div class="mockup-top">
+                    <div class="user-pill">
+                      <span class="avatar">AP</span>
+                      <span>Hello, Ava</span>
+                    </div>
+                    <div class="health-tag">All plants thriving</div>
+                  </div>
+
+                  <div class="mini-stat">
+                    <strong>Today’s Overview</strong>
+                    <span>7 plants monitored with predictive care insights.</span>
+                  </div>
+
+                  <div class="plant-card hero-card">
+                    <div class="plant-topline">
+                      <div class="plant-title">
+                        <strong>Monstera Deliciosa</strong>
+                        <span>Bright, indirect light</span>
+                      </div>
+                      <div class="health-tag">Healthy</div>
+                    </div>
+                    <div class="progress-row">
+                      <div class="progress-label"><span>Water level</span><span>74%</span></div>
+                      <div class="progress-bar"><span></span></div>
+                    </div>
+                    <svg class="plant-art" viewBox="0 0 170 150" fill="none" aria-hidden="true">
+                      <path d="M92 132c0-26-1-61 8-88" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
+                      <path d="M96 61c-18-15-29-31-34-47 17 3 33 11 46 25-1 12-6 20-12 22Z" fill="#4CAF50"/>
+                      <path d="M88 80c-16-6-29-17-38-34 17 0 32 4 45 14 0 11-3 17-7 20Z" fill="#5CB85C"/>
+                      <path d="M100 70c17-13 35-20 55-22-8 17-20 31-36 43-11-2-17-8-19-21Z" fill="#7BC57F"/>
+                      <path d="M81 106c-15-1-28-8-40-22 15-4 29-4 42 1 4 11 3 18-2 21Z" fill="#6DBD74"/>
+                      <path d="M93 137h-21c-7 0-13 5-13 12h47c0-7-6-12-13-12Z" fill="#B57F47"/>
+                    </svg>
+                  </div>
+
+                  <div class="plant-card scan-card">
+                    <div class="plant-topline">
+                      <div class="plant-title">
+                        <strong>AI Plant Scan</strong>
+                        <span>Instant identification results</span>
+                      </div>
+                    </div>
+                    <div class="scan-result">
+                      <div class="scan-badge" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 8V6a2 2 0 0 1 2-2h2"/>
+                          <path d="M16 4h2a2 2 0 0 1 2 2v2"/>
+                          <path d="M20 16v2a2 2 0 0 1-2 2h-2"/>
+                          <path d="M8 20H6a2 2 0 0 1-2-2v-2"/>
+                          <path d="M12 7c-2.8 0-5 2-5 5 0 3.2 2.5 5 5 5s5-1.8 5-5c0-3-2.2-5-5-5Z"/>
+                          <path d="M12 12c1.7-1.7 3.6-2.9 5.8-3.8"/>
+                        </svg>
+                      </div>
+                      <div class="scan-text">
+                        <strong>Calathea Orbifolia</strong>
+                        <span>Low-light friendly. Needs humid conditions and weekly care reminders.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Everything you need to care with confidence</h2>
+          <p>PlantPal combines computer vision, smart reminders, and practical plant health insights into one polished experience for plant lovers and busy beginners alike.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal delay-1">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2c2.5 3 4 5.2 4 8a4 4 0 1 1-8 0c0-2.8 1.5-5 4-8Z"/>
+                <path d="M8 14c2.2 0 4.2 1.1 5.5 3"/>
+                <path d="M16 8c2.5.3 4.6 1.5 6 3.5"/>
+              </svg>
+            </div>
+            <h3>AI Plant Identification</h3>
+            <p>Scan any plant and identify its species instantly with accurate visual recognition.</p>
+          </article>
+          <article class="feature-card reveal delay-2">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"/>
+                <path d="M6 9c2 0 3 1.5 3 3.5S7.5 16 6 16s-3-1.5-3-3.5S4 9 6 9Z"/>
+                <path d="M18 7c1.7 0 3 1.4 3 3.1 0 2-1.3 3.5-3 3.5s-3-1.5-3-3.5S16.3 7 18 7Z"/>
+                <path d="M12 12c0 3-1.7 5.1-4 6.2"/>
+              </svg>
+            </div>
+            <h3>Smart Care Reminders</h3>
+            <p>Receive watering, fertilizing, and pruning notifications at the right time.</p>
+          </article>
+          <article class="feature-card reveal delay-3">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19c2.5-7.5 5.2-11 8-11 3 0 4.6 2.8 8 9"/>
+                <path d="M8 14c1.7-1.8 3.2-2.7 4.5-2.7 1.2 0 2.1.4 3.3 1.8"/>
+                <path d="M17 5v4"/>
+                <path d="M19 7h-4"/>
+              </svg>
+            </div>
+            <h3>Disease Detection</h3>
+            <p>Detect plant diseases through AI image analysis and get treatment recommendations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>How PlantPal makes plant care simpler</h2>
+          <p>A clean three-step flow that keeps the experience intuitive, premium, and easy to understand at a glance.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-card reveal delay-1">
+            <div class="process-steps">
+              <article class="process-step">
+                <div class="process-step-number">1</div>
+                <div>
+                  <h3>Scan your plant</h3>
+                  <p>Take a photo to identify the plant, surface health status, and get immediate care guidance.</p>
+                </div>
+              </article>
+              <article class="process-step">
+                <div class="process-step-number">2</div>
+                <div>
+                  <h3>Set smart routines</h3>
+                  <p>Add watering, fertilizing, and pruning cycles that adapt to plant type and environment.</p>
+                </div>
+              </article>
+              <article class="process-step">
+                <div class="process-step-number">3</div>
+                <div>
+                  <h3>Track growth over time</h3>
+                  <p>Monitor progress with reminders, health insights, and smooth updates that keep everything on track.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <aside class="process-preview reveal delay-2" aria-label="PlantPal dashboard summary">
+            <div class="process-preview-card">
+              <div class="plant-topline" style="margin-bottom: 0;">
+                <div class="plant-title">
+                  <strong>Live Plant Care Snapshot</strong>
+                  <span>Updated through AI-powered insights</span>
+                </div>
+                <div class="health-tag">Balanced</div>
+              </div>
+
+              <div class="mini-stat">
+                <strong>Care Score</strong>
+                <span>92% of tasks completed this week.</span>
+              </div>
+
+              <div class="process-meter">
+                <div class="process-meter-label"><span>Light exposure</span><span>Good</span></div>
+                <div class="progress-bar"><span style="width: 82%;"></span></div>
+              </div>
+
+              <div class="process-pill-row" aria-label="Plant care tags">
+                <span class="process-pill">Weekly scan</span>
+                <span class="process-pill">Water in 2 days</span>
+                <span class="process-pill">Fertilize soon</span>
+                <span class="process-pill">Disease safe</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <div class="plant-room" aria-label="Illustration of indoor plants">
+              <div class="plant-scene">
+                <div class="stem"></div>
+                <div class="plant-leaf leaf-1"></div>
+                <div class="plant-leaf leaf-2"></div>
+                <div class="plant-leaf leaf-3"></div>
+                <div class="plant-leaf leaf-4"></div>
+                <div class="plant-leaf leaf-5"></div>
+                <div class="plant-pot"></div>
+              </div>
+            </div>
+          </div>
+          <div class="about-copy reveal delay-1">
+            <div class="section-header" style="margin-bottom: 0;">
+              <h2>Built to make plant care feel effortless</h2>
+              <p>PlantPal’s mission is simple: making plant care effortless through artificial intelligence and smart automation.</p>
+            </div>
+            <div class="quote-box">
+              "Making plant care effortless through artificial intelligence and smart automation."
+            </div>
+            <p>Whether you are managing a single desk plant or a growing indoor jungle, PlantPal helps you keep track of light, water, health changes, and seasonal routines without the guesswork.</p>
+            <p>Designed with a premium SaaS feel, the experience blends warm nature-inspired visuals with practical tools that turn care into a calm daily habit.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Try PlantPal</a>
+              <a class="btn btn-secondary" href="#features">See Features</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Trusted by plant lovers around the world</h2>
+          <p>PlantPal helps users stay ahead of plant care with measurable results and a simple, delightful product experience.</p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card reveal delay-1">
+            <span class="stat-value">10,000+</span>
+            <span class="stat-label">Plants Identified</span>
+          </article>
+          <article class="stat-card reveal delay-2">
+            <span class="stat-value">95%</span>
+            <span class="stat-label">User Satisfaction</span>
+          </article>
+          <article class="stat-card reveal delay-3">
+            <span class="stat-value">1 Million+</span>
+            <span class="stat-label">Care Reminders Sent</span>
+          </article>
+          <article class="stat-card reveal delay-3">
+            <span class="stat-value">50+</span>
+            <span class="stat-label">Countries Using PlantPal</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <div>
+            <h2>Start Growing Smarter Today!</h2>
+            <p>Join PlantPal and turn everyday plant care into an easy, intelligent routine with reminders, scans, and health insights.</p>
+          </div>
+          <a class="btn btn-light" href="#home">Download Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card">
+        <div class="footer-brand">
+          <a class="brand" href="#home">
+            <span class="brand-badge" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M17.5 4.2c-5.8.1-9.9 3.1-11.8 9-.5 1.5-.7 3.1-.7 4.7 2.5 0 4.7-.4 6.5-1.2 4.9-2.1 7.8-6 8.7-11.8-1-.4-1.8-.7-2.7-.7Z" fill="#2E7D32"/>
+                <path d="M7.5 17.2c3.8-4.6 7.7-7.8 11.8-9.6" stroke="#fff" stroke-opacity="0.7" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </span>
+            PlantPal
+          </a>
+          <p>Smart plant care for modern homes, offices, and growing indoor gardens.</p>
+        </div>
+
+        <div class="footer-links" aria-label="Quick Links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div>
+          <div class="social-links" aria-label="Social media links">
+            <a class="social-link" href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <path d="M16.5 7.5h.01"/>
+                <path d="M7 12a5 5 0 1 0 10 0 5 5 0 0 0-10 0Z"/>
+              </svg>
+            </a>
+            <a class="social-link" href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v3H7v4h3v9h4v-9h3l1-4h-4V8c0-.6.4-1 1-1Z"/>
+              </svg>
+            </a>
+            <a class="social-link" href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 9.5V18"/>
+                <path d="M6.5 6.5v.1"/>
+                <path d="M10 18v-5.2c0-2 1.2-3.3 3-3.3s3 1.3 3 3.3V18"/>
+                <path d="M10 12.3V18"/>
+                <rect x="3" y="3" width="18" height="18" rx="4"/>
+              </svg>
+            </a>
+            <a class="social-link" href="#" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 5.5c-.8.4-1.7.7-2.6.8a4.5 4.5 0 0 0-7.7 4.1A12.8 12.8 0 0 1 3 4.9s-3 6.8 4 10.4c-1.6 1.1-3.4 1.8-5 2 1.5 4.4 5.6 5.7 9 5.5 7.9-.4 12.2-6.8 11.7-13v-.6c.8-.6 1.6-1.2 2.3-2Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy" style="margin-top: 1.4rem;">© 2026 PlantPal. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
