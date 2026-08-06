@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upasana Roy - Resume</title>
+  <style>
+    /* ATS-Friendly Print & Display CSS */
+    :root {
+      --primary: #1E293B;
+      --accent: #2563EB;
+      --text: #0F172A;
+      --muted: #475569;
+      --border: #CBD5E1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-color: #F8FAFC;
+      line-height: 1.45;
+      font-size: 10.5pt;
+    }
+
+    .resume-page {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #FFFFFF;
+      padding: 35px 45px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+    }
+
+    /* Print Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .subtitle {
+      font-size: 11pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .contact-info {
+      font-size: 9pt;
+      color: var(--muted);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-info a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* Education */
+    .edu-item, .project-item {
+      margin-bottom: 8px;
+    }
+
+    .row-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 700;
+      font-size: 10.5pt;
+      color: var(--primary);
+    }
+
+    .row-subtitle {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 3px;
+    }
+
+    /* Skills Table */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      row-gap: 4px;
+      font-size: 9.5pt;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .skill-val {
+      color: var(--text);
+    }
+
+    /* Bullet Lists */
+    ul {
+      list-style-type: disc;
+      margin-left: 18px;
+      font-size: 9.5pt;
+    }
+
+    li {
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .tech-used {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Action bar for Web view */
+    .no-print-bar {
+      max-width: 800px;
+      margin: 15px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background: #1E293B;
+      color: white;
+      border-radius: 6px;
+    }
+
+    .btn-print {
+      background: #2563EB;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 9.5pt;
+    }
+
+    .btn-print:hover {
+      background: #1D4ED8;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .resume-page {
+        margin: 0;
+        padding: 20px 30px;
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print Button Bar (Hidden when printing) -->
+  <div class="no-print-bar">
+    <span>📄 ATS-Friendly Resume Preview (Upasana Roy)</span>
+    <div>
+      <button onclick="window.print()" class="btn-print">🖨️ Print / Download PDF</button>
+    </div>
+  </div>
+
+  <div class="resume-page">
+    <header>
+      <h1>UPASANA ROY</h1>
+      <div class="subtitle">Computer Science Engineering Student &amp; Aspiring Software Engineer</div>
+      <div class="contact-info">
+        <span>📍 Kolkata, West Bengal</span>
+        <span>📧 <a href="mailto:upasana2k25@gmail.com">upasana2k25@gmail.com</a></span>
+        <span>💻 <a href="https://github.com/upasanaX">github.com/upasanaX</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/upasana-roy-170328202">linkedin.com/in/upasana-roy-170328202</a></span>
+      </div>
+    </header>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="edu-item">
+        <div class="row-header">
+          <span>RCC Institute of Information Technology (RCCIIT)</span>
+          <span>Kolkata, West Bengal</span>
+        </div>
+        <div class="row-subtitle">
+          <span>Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering (2nd Year)</span>
+          <span>2025 – 2029 (Expected)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div class="skill-label">Languages:</div>
+        <div class="skill-val">C, Java, Python, JavaScript (ES6+), TypeScript</div>
+
+        <div class="skill-label">Frontend &amp; Frameworks:</div>
+        <div class="skill-val">HTML5, CSS3, React.js, Next.js, Tailwind CSS, Responsive Web Design</div>
+
+        <div class="skill-label">Backend &amp; Database:</div>
+        <div class="skill-val">FastAPI, Python, RESTful APIs, MySQL, MongoDB</div>
+
+        <div class="skill-label">Tools &amp; Workflow:</div>
+        <div class="skill-val">Git, GitHub, VS Code, Postman, TanStack, Cloudflare Workers</div>
+      </div>
+    </section>
+
+    <!-- Key Projects -->
+    <section>
+      <div class="section-title">Projects</div>
+
+      <!-- Project 1 -->
+      <div class="project-item">
+        <div class="row-header">
+          <span>Nayak Legal Tech Platform</span>
+          <span>GitHub: sramanpati48-hue/Nayak</span>
+        </div>
+        <ul>
+          <li>Architected a high-performance full-stack legal technology platform with modules (Nayak, NyayBandhu, VicharakBandhu) for automated adversarial analysis, case synthesis, and judicial review support.</li>
+          <li><span class="tech-used">Technologies Used:</span> Next.js, TypeScript, FastAPI, Python</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-item">
+        <div class="row-header">
+          <span>GlobePay Frontend</span>
+          <span>GitHub: upasanaX/Globepay-frontend</span>
+        </div>
+        <ul>
+          <li>Developed a clean and responsive frontend interface for a digital payment platform with intuitive UX, responsive layouts, and cross-browser accessibility.</li>
+          <li><span class="tech-used">Technologies Used:</span> HTML5, CSS3, JavaScript</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-item">
+        <div class="row-header">
+          <span>TripMate – Travel Application</span>
+          <span>Live Demo: travel-app-showcase.vercel.app</span>
+        </div>
+        <ul>
+          <li>Built a modern travel planning application enabling seamless destination discovery, organized trip management, and clean user experience.</li>
+          <li><span class="tech-used">Technologies Used:</span> React, JavaScript, CSS, Vercel</li>
+        </ul>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-item">
+        <div class="row-header">
+          <span>Bharat ID</span>
+          <span>Live Demo: tanstack-start-app.bharatid-app.workers.dev</span>
+        </div>
+        <ul>
+          <li>Engineered an all-in-one digital identity management platform for secure personal ID storage and instant access to public services.</li>
+          <li><span class="tech-used">Technologies Used:</span> React, TypeScript, TanStack, Cloudflare Workers</li>
+        </ul>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-item">
+        <div class="row-header">
+          <span>Health Insights</span>
+          <span>GitHub: Enu-code/healthcarehackathon</span>
+        </div>
+        <ul>
+          <li>Designed an AI-powered healthcare web app featuring lab report analysis, prescription decoding, skin diagnostics, and health summary dashboards.</li>
+          <li><span class="tech-used">Technologies Used:</span> React (Vite), Tailwind CSS, JavaScript</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Highlights / Achievements -->
+    <section>
+      <div class="section-title">Key Highlights</div>
+      <ul>
+        <li>Active Computer Science undergrad with strong knowledge in Data Structures, Object-Oriented Programming, and Web Engineering.</li>
+        <li>Passionate open-source contributor managing multiple full-stack and frontend repositories on GitHub.</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+</html>

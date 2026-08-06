@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="healthBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#831843"/>
+    </linearGradient>
+    <linearGradient id="healthGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EC4899"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="380" fill="url(#healthBg)"/>
+  
+  <!-- Glowing pulse line -->
+  <path d="M0,190 H180 L200,140 L220,240 L240,160 L260,200 L280,190 H600" stroke="#EC4899" stroke-width="2" fill="none" opacity="0.3"/>
+
+  <!-- UI Window Container -->
+  <rect x="50" y="45" width="500" height="290" rx="12" fill="#0F172A" stroke="#EC4899" stroke-width="1.5" opacity="0.95"/>
+  
+  <!-- Window Header -->
+  <rect x="50" y="45" width="500" height="36" rx="12" fill="#4C1D95" opacity="0.6"/>
+  <circle cx="72" cy="63" r="5" fill="#EF4444"/>
+  <circle cx="88" cy="63" r="5" fill="#F59E0B"/>
+  <circle cx="104" cy="63" r="5" fill="#10B981"/>
+  <text x="300" y="68" fill="#F472B6" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Health Insights – AI Healthcare Platform</text>
+
+  <!-- Dashboard Overview Cards -->
+  <rect x="75" y="95" width="200" height="100" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="90" y="120" fill="#F472B6" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Lab Report Analyzer</text>
+  <rect x="90" y="135" width="140" height="8" rx="4" fill="#334155"/>
+  <rect x="90" y="150" width="110" height="8" rx="4" fill="#334155"/>
+  <rect x="90" y="168" width="80" height="16" rx="4" fill="url(#healthGrad)"/>
+  <text x="130" y="180" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="9" font-weight="700" text-anchor="middle">AI Analysis</text>
+
+  <rect x="290" y="95" width="235" height="100" rx="8" fill="#1E293B" stroke="#EC4899" stroke-width="1"/>
+  <text x="305" y="120" fill="#C084FC" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Prescription Decoder</text>
+  <rect x="305" y="135" width="180" height="8" rx="4" fill="#334155"/>
+  <rect x="305" y="150" width="150" height="8" rx="4" fill="#334155"/>
+  <rect x="305" y="168" width="100" height="16" rx="4" fill="#8B5CF6"/>
+  <text x="355" y="180" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="9" font-weight="700" text-anchor="middle">View Dosage</text>
+
+  <!-- Lower Row Features -->
+  <rect x="75" y="210" width="145" height="100" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="90" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">Skin Analyzer</text>
+  <rect x="90" y="250" width="115" height="40" rx="6" fill="#334155" opacity="0.5"/>
+
+  <rect x="235" y="210" width="145" height="100" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="250" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">Health Summary</text>
+  <circle cx="307" cy="270" r="18" fill="none" stroke="#EC4899" stroke-width="4"/>
+
+  <rect x="395" y="210" width="130" height="100" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="410" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">History Log</text>
+  <rect x="410" y="250" width="100" height="6" rx="3" fill="#EC4899"/>
+  <rect x="410" y="265" width="80" height="6" rx="3" fill="#8B5CF6"/>
+  <rect x="410" y="280" width="60" height="6" rx="3" fill="#334155"/>
+</svg>

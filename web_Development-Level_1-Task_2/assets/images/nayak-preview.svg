@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nayakBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="nayakAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <filter id="nayakGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="380" fill="url(#nayakBg)"/>
+  <circle cx="500" cy="80" r="140" fill="#38BDF8" opacity="0.08"/>
+  <circle cx="100" cy="300" r="160" fill="#818CF8" opacity="0.06"/>
+
+  <!-- Grid lines -->
+  <path d="M0,80 H600 M0,160 H600 M0,240 H600 M0,320 H600" stroke="#334155" stroke-width="1" opacity="0.3"/>
+  <path d="M120,0 V380 M240,0 V380 M360,0 V380 M480,0 V380" stroke="#334155" stroke-width="1" opacity="0.3"/>
+
+  <!-- UI Window Container -->
+  <rect x="50" y="45" width="500" height="290" rx="12" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5" opacity="0.9" filter="url(#nayakGlow)"/>
+  
+  <!-- Window Header -->
+  <rect x="50" y="45" width="500" height="36" rx="12" fill="#0F172A"/>
+  <circle cx="72" cy="63" r="5" fill="#EF4444"/>
+  <circle cx="88" cy="63" r="5" fill="#F59E0B"/>
+  <circle cx="104" cy="63" r="5" fill="#10B981"/>
+  <text x="300" y="68" fill="#94A3B8" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" text-anchor="middle">Nayak Legal Tech Platform</text>
+
+  <!-- Left Sidebar -->
+  <rect x="65" y="95" width="110" height="225" rx="8" fill="#0F172A" opacity="0.8"/>
+  <rect x="78" y="110" width="84" height="20" rx="4" fill="url(#nayakAccent)"/>
+  <rect x="78" y="142" width="70" height="12" rx="3" fill="#334155"/>
+  <rect x="78" y="164" width="80" height="12" rx="3" fill="#334155"/>
+  <rect x="78" y="186" width="65" height="12" rx="3" fill="#334155"/>
+
+  <!-- Main Content Dashboard -->
+  <rect x="190" y="95" width="345" height="100" rx="8" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  <text x="210" y="122" fill="#38BDF8" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700">Adversarial Legal Analysis</text>
+  <rect x="210" y="135" width="220" height="8" rx="4" fill="#334155"/>
+  <rect x="210" y="150" width="180" height="8" rx="4" fill="#334155"/>
+  
+  <!-- Scale / Gavel Icon Representation -->
+  <g transform="translate(450, 115)" stroke="#38BDF8" stroke-width="2" fill="none">
+    <path d="M0,25 L30,25 M15,0 V35 M5,35 H25"/>
+    <path d="M0,10 L-10,25 H10 Z" fill="#38BDF8" opacity="0.2"/>
+    <path d="M30,10 L20,25 H40 Z" fill="#38BDF8" opacity="0.2"/>
+  </g>
+
+  <!-- Modules Grid -->
+  <rect x="190" y="210" width="105" height="110" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="1" opacity="0.9"/>
+  <text x="242" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Nayak</text>
+  <rect x="205" y="250" width="75" height="6" rx="3" fill="#38BDF8"/>
+  <rect x="205" y="265" width="60" height="6" rx="3" fill="#475569"/>
+
+  <rect x="310" y="210" width="105" height="110" rx="8" fill="#0F172A" stroke="#818CF8" stroke-width="1" opacity="0.9"/>
+  <text x="362" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700" text-anchor="middle">NyayBandhu</text>
+  <rect x="325" y="250" width="75" height="6" rx="3" fill="#818CF8"/>
+  <rect x="325" y="265" width="60" height="6" rx="3" fill="#475569"/>
+
+  <rect x="430" y="210" width="105" height="110" rx="8" fill="#0F172A" stroke="#34D399" stroke-width="1" opacity="0.9"/>
+  <text x="482" y="235" fill="#E2E8F0" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700" text-anchor="middle">VicharakBandhu</text>
+  <rect x="445" y="250" width="75" height="6" rx="3" fill="#34D399"/>
+  <rect x="445" y="265" width="60" height="6" rx="3" fill="#475569"/>
+
+</svg>

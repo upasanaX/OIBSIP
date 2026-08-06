@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <rect width="600" height="380" rx="16" fill="#0F172A"/>
+  <rect x="20" y="20" width="560" height="340" rx="12" fill="#1E293B" stroke="#334155" stroke-width="2"/>
+  
+  <path d="M 300,60 C 240,60 190,110 190,170 C 190,218 221,258 264,272 C 270,273 272,269 272,266 C 272,263 272,255 272,246 C 242,253 236,232 236,232 C 231,219 223,216 223,216 C 213,209 224,209 224,209 C 235,210 241,221 241,221 C 251,238 267,233 273,230 C 274,223 277,218 280,215 C 256,212 230,203 230,162 C 230,150 234,140 241,133 C 240,130 236,118 242,103 C 242,103 251,100 272,114 C 281,111 291,110 300,110 C 309,110 319,111 328,114 C 349,100 358,103 358,103 C 364,118 360,130 359,133 C 366,140 370,150 370,162 C 370,203 344,212 320,215 C 324,218 328,226 328,238 C 328,255 328,263 328,266 C 328,269 330,273 336,272 C 379,258 410,218 410,170 C 410,110 360,60 300,60 Z" fill="#38BDF8"/>
+  
+  <text x="300" y="315" font-family="sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">github.com/upasanaX</text>
+  <text x="300" y="340" font-family="sans-serif" font-size="13" fill="#94A3B8" text-anchor="middle">Explore Open Source Repositories &amp; Code Contributions</text>
+</svg>
