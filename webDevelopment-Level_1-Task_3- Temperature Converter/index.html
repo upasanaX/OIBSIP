@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern, high-precision Temperature Converter web application supporting Celsius, Fahrenheit, and Kelvin conversions with real-time validation, conversion history, and glassmorphism design.">
+  <meta name="theme-color" content="#0F172A">
+  <title>Temperature Converter | Modern ThermoShift App</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Glow Backgrounds -->
+  <div class="ambient-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow bg-glow-2" aria-hidden="true"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="app-container">
+    <!-- Header Section with Theme Switcher -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="brand-badge">
+          <i class="fa-solid fa-temperature-arrow-up brand-icon"></i>
+          <span>ThermoShift Pro</span>
+        </div>
+        <!-- Feature 3: Theme Toggle Button -->
+        <button type="button" id="themeToggleBtn" class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Switch Theme">
+          <i class="fa-solid fa-moon theme-icon" id="themeIcon"></i>
+        </button>
+      </div>
+      <h1 class="app-title">Temperature Converter</h1>
+      <p class="app-subtitle">Convert seamlessly between Celsius, Fahrenheit, and Kelvin with physical validation & real-time analytics.</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="app-main">
+      <!-- Converter Glass Card -->
+      <section class="converter-card" aria-labelledby="converter-heading">
+        <h2 id="converter-heading" class="sr-only">Temperature Input Form</h2>
+
+        <!-- Quick Temperature Presets -->
+        <div class="presets-wrapper">
+          <span class="presets-label"><i class="fa-solid fa-bolt-lightning"></i> Quick Presets:</span>
+          <div class="preset-chips" role="group" aria-label="Temperature Presets">
+            <button type="button" class="preset-btn" data-temp="-273.15" data-unit="C" aria-label="Preset Absolute Zero">
+              Absolute Zero
+            </button>
+            <button type="button" class="preset-btn" data-temp="0" data-unit="C" aria-label="Preset Freezing Point">
+              Freezing (0°C)
+            </button>
+            <button type="button" class="preset-btn" data-temp="20" data-unit="C" aria-label="Preset Room Temperature">
+              Room Temp (20°C)
+            </button>
+            <button type="button" class="preset-btn" data-temp="37" data-unit="C" aria-label="Preset Body Temperature">
+              Body Temp (37°C)
+            </button>
+            <button type="button" class="preset-btn" data-temp="100" data-unit="C" aria-label="Preset Boiling Point">
+              Boiling (100°C)
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Form Control Group -->
+        <div class="input-form">
+          <!-- Numeric Field -->
+          <div class="form-group field-group">
+            <label for="tempInput" class="form-label">
+              <i class="fa-solid fa-input-numeric label-icon"></i> Temperature Value
+            </label>
+            <div class="input-wrapper">
+              <input 
+                type="text" 
+                id="tempInput" 
+                class="form-input" 
+                placeholder="Enter Temperature" 
+                autocomplete="off"
+                inputmode="decimal"
+                aria-label="Temperature Value Input"
+                aria-describedby="errorMessage" 
+                required
+              />
+              <button type="button" id="clearInputBtn" class="clear-input-btn hidden" aria-label="Clear input value" title="Clear input">
+                <i class="fa-solid fa-circle-xmark"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Unit Selector Dropdown -->
+          <div class="form-group unit-group">
+            <label for="unitSelect" class="form-label">
+              <i class="fa-solid fa-ruler label-icon"></i> Input Unit
+            </label>
+            <div class="select-wrapper">
+              <select id="unitSelect" class="form-select" aria-label="Select Input Temperature Unit">
+                <option value="C" selected>Celsius (°C)</option>
+                <option value="F">Fahrenheit (°F)</option>
+                <option value="K">Kelvin (K)</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real-time Error Alert Banner -->
+        <div id="errorMessage" class="error-banner hidden" role="alert" aria-live="assertive">
+          <i class="fa-solid fa-circle-exclamation error-icon"></i>
+          <span id="errorText" class="error-text">Please enter a valid numeric temperature value.</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="actions-group">
+          <button type="button" id="convertBtn" class="btn btn-primary" aria-label="Convert Temperature">
+            <span class="btn-spinner hidden" id="btnSpinner" aria-hidden="true">
+              <i class="fa-solid fa-circle-notch fa-spin"></i>
+            </span>
+            <i class="fa-solid fa-calculator btn-icon" id="btnIcon"></i>
+            <span class="btn-text" id="btnText">Convert Now</span>
+          </button>
+          <button type="button" id="resetBtn" class="btn btn-secondary" aria-label="Reset Converter Form">
+            <i class="fa-solid fa-rotate-right btn-icon"></i>
+            <span>Reset All</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Results Display Section -->
+      <section id="resultsSection" class="results-section hidden" aria-live="polite" aria-labelledby="results-heading">
+        <div class="results-header">
+          <h2 id="results-heading" class="results-title">
+            <i class="fa-solid fa-square-poll-vertical title-icon"></i> Conversion Output
+          </h2>
+          <div class="results-actions">
+            <span class="results-badge" id="resultsBadge">Input: Celsius</span>
+            <!-- Feature 2: Copy Result Button -->
+            <button type="button" id="copyResultsBtn" class="copy-btn" aria-label="Copy conversion results to clipboard" title="Copy All Results">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Result</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards Grid for Celsius, Fahrenheit, Kelvin with Tooltips -->
+        <div class="results-grid">
+          <!-- Celsius Output Card -->
+          <article class="result-card" id="celsiusCard" data-unit="C">
+            <div class="card-top">
+              <span class="unit-name">
+                <i class="fa-solid fa-temperature-half"></i> Celsius
+                <!-- Feature 5: Tooltip Icon -->
+                <span class="tooltip-wrapper">
+                  <i class="fa-solid fa-circle-info tooltip-icon" tabindex="0" aria-label="Celsius unit information"></i>
+                  <span class="tooltip-box" role="tooltip">Water freezes at 0°C and boils at 100°C under standard atmospheric pressure.</span>
+                </span>
+              </span>
+              <span class="unit-tag">°C</span>
+            </div>
+            <div class="card-body">
+              <span class="result-value" id="celsiusVal">--</span>
+              <span class="result-symbol">°C</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-status" id="celsiusStatus">Base Unit</span>
+            </div>
+          </article>
+
+          <!-- Fahrenheit Output Card -->
+          <article class="result-card" id="fahrenheitCard" data-unit="F">
+            <div class="card-top">
+              <span class="unit-name">
+                <i class="fa-solid fa-temperature-high"></i> Fahrenheit
+                <!-- Feature 5: Tooltip Icon -->
+                <span class="tooltip-wrapper">
+                  <i class="fa-solid fa-circle-info tooltip-icon" tabindex="0" aria-label="Fahrenheit unit information"></i>
+                  <span class="tooltip-box" role="tooltip">Commonly used in the United States for weather and everyday temperatures.</span>
+                </span>
+              </span>
+              <span class="unit-tag">°F</span>
+            </div>
+            <div class="card-body">
+              <span class="result-value" id="fahrenheitVal">--</span>
+              <span class="result-symbol">°F</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-status" id="fahrenheitStatus">Converted Unit</span>
+            </div>
+          </article>
+
+          <!-- Kelvin Output Card -->
+          <article class="result-card" id="kelvinCard" data-unit="K">
+            <div class="card-top">
+              <span class="unit-name">
+                <i class="fa-solid fa-atom"></i> Kelvin
+                <!-- Feature 5: Tooltip Icon -->
+                <span class="tooltip-wrapper">
+                  <i class="fa-solid fa-circle-info tooltip-icon" tabindex="0" aria-label="Kelvin unit information"></i>
+                  <span class="tooltip-box" role="tooltip">The SI base unit of temperature. 0 K represents Absolute Zero.</span>
+                </span>
+              </span>
+              <span class="unit-tag">K</span>
+            </div>
+            <div class="card-body">
+              <span class="result-value" id="kelvinVal">--</span>
+              <span class="result-symbol">K</span>
+            </div>
+            <div class="card-footer">
+              <span class="card-status" id="kelvinStatus">Absolute Scale</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Feature 4: Temperature Status Indicator Card -->
+        <div id="statusCard" class="status-card" aria-live="polite">
+          <div class="status-left">
+            <span id="statusEmoji" class="status-emoji">🌤</span>
+          </div>
+          <div class="status-right">
+            <h3 id="statusTitle" class="status-title">Pleasant</h3>
+            <p id="statusDesc" class="status-desc">The temperature is comfortable for most outdoor activities.</p>
+          </div>
+        </div>
+
+        <!-- Thermal Visual Scale Gauge -->
+        <div class="gauge-card">
+          <div class="gauge-header">
+            <span class="gauge-title"><i class="fa-solid fa-gauge-high"></i> Thermal Visual Spectrum</span>
+            <span id="gaugeStatusText" class="gauge-status">Moderate</span>
+          </div>
+          <div class="gauge-bar-wrapper">
+            <div class="gauge-bar">
+              <div id="gaugeIndicator" class="gauge-indicator" style="left: 50%;">
+                <div class="indicator-tooltip" id="gaugeTooltip">25 °C</div>
+              </div>
+            </div>
+          </div>
+          <div class="gauge-labels">
+            <span>Absolute Zero (-273.15°C)</span>
+            <span>Freezing (0°C)</span>
+            <span>Room (20°C)</span>
+            <span>Boiling (100°C)</span>
+            <span>Extreme High</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature 6: Random Temperature Facts Card -->
+      <section id="factsCard" class="facts-card" aria-labelledby="facts-heading">
+        <div class="facts-header">
+          <h2 id="facts-heading" class="facts-title">
+            <i class="fa-solid fa-lightbulb facts-icon"></i> Did You Know?
+          </h2>
+          <button type="button" id="newFactBtn" class="btn-text-action" aria-label="Get another random fact">
+            <i class="fa-solid fa-arrows-rotate"></i> New Fact
+          </button>
+        </div>
+        <p id="factText" class="fact-text">Absolute zero is 0 Kelvin (-273.15°C), the temperature at which all molecular motion ceases.</p>
+      </section>
+
+      <!-- Feature 1: Recent Conversions History Card -->
+      <section id="historySection" class="history-card" aria-labelledby="history-heading">
+        <div class="history-header">
+          <h2 id="history-heading" class="history-title">
+            <i class="fa-solid fa-clock-rotate-left history-icon"></i> Recent Conversions
+          </h2>
+          <button type="button" id="clearHistoryBtn" class="btn-text-action btn-danger-action" aria-label="Clear conversion history">
+            <i class="fa-solid fa-trash-can"></i> Clear History
+          </button>
+        </div>
+        
+        <div id="emptyHistoryMsg" class="empty-history-msg">
+          <i class="fa-solid fa-folder-open empty-icon"></i>
+          <p>No conversion history yet. Convert a temperature to see past records here!</p>
+        </div>
+
+        <ul id="historyList" class="history-list hidden"></ul>
+      </section>
+
+      <!-- Formulas Information Section -->
+      <section class="info-card" aria-labelledby="formulas-heading">
+        <details class="formulas-accordion">
+          <summary class="formulas-summary" id="formulas-heading">
+            <span class="summary-title">
+              <i class="fa-solid fa-book-bookmark summary-icon"></i> Temperature Conversion Formulas & Reference
+            </span>
+            <i class="fa-solid fa-chevron-down accordion-arrow" aria-hidden="true"></i>
+          </summary>
+          <div class="formulas-content">
+            <div class="formula-grid">
+              <div class="formula-box">
+                <h3><i class="fa-solid fa-arrow-right-arrow-left"></i> Celsius to Others</h3>
+                <ul>
+                  <li><strong>Fahrenheit:</strong> <code>°F = (°C × 9/5) + 32</code></li>
+                  <li><strong>Kelvin:</strong> <code>K = °C + 273.15</code></li>
+                </ul>
+              </div>
+              <div class="formula-box">
+                <h3><i class="fa-solid fa-arrow-right-arrow-left"></i> Fahrenheit to Others</h3>
+                <ul>
+                  <li><strong>Celsius:</strong> <code>°C = (°F − 32) × 5/9</code></li>
+                  <li><strong>Kelvin:</strong> <code>K = ((°F − 32) × 5/9) + 273.15</code></li>
+                </ul>
+              </div>
+              <div class="formula-box">
+                <h3><i class="fa-solid fa-arrow-right-arrow-left"></i> Kelvin to Others</h3>
+                <ul>
+                  <li><strong>Celsius:</strong> <code>°C = K − 273.15</code></li>
+                  <li><strong>Fahrenheit:</strong> <code>°F = ((K − 273.15) × 9/5) + 32</code></li>
+                </ul>
+              </div>
+              <div class="formula-box absolute-zero-info">
+                <h3><i class="fa-solid fa-snowflake"></i> Physics Boundary (Absolute Zero)</h3>
+                <p>Absolute zero is the theoretical lower limit of thermodynamic temperature scale:</p>
+                <ul>
+                  <li><strong>Celsius:</strong> −273.15 °C</li>
+                  <li><strong>Fahrenheit:</strong> −459.67 °F</li>
+                  <li><strong>Kelvin:</strong> 0.00 K</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="app-footer">
+      <p>&copy; <span id="yearSpan">2026</span> <strong>ThermoShift Temperature Converter</strong>. Built for Excellence.</p>
+      <p class="footer-sub">Clean Architecture • HTML5 • CSS3 Glassmorphism • Vanilla ES6+ JS</p>
+    </footer>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
