@@ -1,3 +1,4 @@
+// Task 3: Temperature Converter Pro Script
 /**
  * ThermoShift Pro - Temperature Converter Application Script
  * Features: Pure HTML5/CSS3/ES6+, History, Copy API, Light/Dark Theme,
