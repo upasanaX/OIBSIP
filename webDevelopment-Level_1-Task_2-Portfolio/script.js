@@ -5,6 +5,7 @@
  *           active link highlighting, mobile menu toggle, modal & form validation.
  */
 
+// Task 2: Portfolio Web Application Script
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ------------------------------------------------------------------------
