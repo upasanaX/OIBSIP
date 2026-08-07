@@ -46,14 +46,15 @@
         </a>
 
         <nav class="menu" aria-label="Primary">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#demo">Live Demo</a>
           <a href="#features">Features</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
         </nav>
 
         <div class="nav-actions">
-          <a class="btn btn-primary desktop-cta" href="#contact">Get Started</a>
+          <button class="btn btn-primary desktop-cta trigger-modal" id="openModalBtn">Get Started</button>
           <details class="mobile-nav">
             <summary aria-label="Toggle navigation">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
@@ -64,10 +65,11 @@
             </summary>
             <div class="mobile-nav-panel">
               <a href="#home">Home</a>
-              <a href="#about">About</a>
+              <a href="#demo">Live Demo</a>
               <a href="#features">Features</a>
-              <a href="#contact">Contact</a>
-              <a class="btn btn-primary" href="#contact">Get Started</a>
+              <a href="#about">About</a>
+              <a href="#faq">FAQ</a>
+              <button class="btn btn-primary trigger-modal">Get Started</button>
             </div>
           </details>
         </div>
@@ -80,24 +82,24 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy reveal">
-            <div class="eyebrow">Smart care for every leaf</div>
-            <h1>Keep Every Plant Healthy with AI 🌿</h1>
+            <div class="eyebrow">Smart care for every leaf 🌿</div>
+            <h1>Keep Every Plant Healthy with AI</h1>
             <p>Identify plants instantly, receive personalized care reminders, detect diseases early, and monitor growth—all in one smart app.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Get Started</a>
-              <a class="btn btn-secondary" href="#features">Learn More</a>
+              <button class="btn btn-primary trigger-modal">Try PlantPal Free</button>
+              <a class="btn btn-secondary" href="#demo">Interactive Demo ⚡</a>
             </div>
             <div class="hero-points" aria-label="Key benefits">
-              <span class="chip">AI plant scans</span>
-              <span class="chip">Watering reminders</span>
-              <span class="chip">Growth tracking</span>
+              <span class="chip clickable-chip" data-toast="🌱 AI Plant Scanner ready! Click on the phone screen to try scanning.">🌱 AI plant scans</span>
+              <span class="chip clickable-chip" data-toast="💧 Smart reminders send notification when soil moisture drops below threshold.">💧 Watering reminders</span>
+              <span class="chip clickable-chip" data-toast="📈 Track leaf count, height, and overall vitality over time.">Growth tracking</span>
             </div>
           </div>
 
           <div class="hero-visual reveal delay-1" aria-label="PlantPal smartphone mockup">
-            <div class="floating-card float-1">🌱 98% plant health score</div>
-            <div class="floating-card float-2">💧 Water in 2 days</div>
-            <div class="floating-card float-3">🔎 AI scan ready</div>
+            <div class="floating-card float-1 clickable-badge" data-toast="🌟 Overall Garden Health: 98% (All plants in optimal condition!)">🌱 98% plant health score</div>
+            <div class="floating-card float-2 clickable-badge" data-toast="💧 Reminder scheduled: Next watering on Tuesday, 10:00 AM.">💧 Water in 2 days</div>
+            <div class="floating-card float-3 clickable-badge" data-toast="📷 Camera lens active: Point at plant to diagnose health.">🔎 AI scan ready</div>
 
             <div class="mockup-shell">
               <div class="mockup-screen">
@@ -108,25 +110,30 @@
                       <span class="avatar">AP</span>
                       <span>Hello, Ava</span>
                     </div>
-                    <div class="health-tag">All plants thriving</div>
+                    <div class="health-tag" id="mainHealthStatus">All plants thriving</div>
                   </div>
 
                   <div class="mini-stat">
                     <strong>Today’s Overview</strong>
-                    <span>7 plants monitored with predictive care insights.</span>
+                    <span id="overviewSubtitle">7 plants monitored with predictive care insights.</span>
                   </div>
 
-                  <div class="plant-card hero-card">
+                  <div class="plant-card hero-card" id="heroPlantCard">
                     <div class="plant-topline">
                       <div class="plant-title">
-                        <strong>Monstera Deliciosa</strong>
-                        <span>Bright, indirect light</span>
+                        <strong id="activePlantName">Monstera Deliciosa</strong>
+                        <span id="activePlantLight">Bright, indirect light</span>
                       </div>
-                      <div class="health-tag">Healthy</div>
+                      <button class="action-mini-btn" id="waterBtn" title="Water Plant">💧 Water</button>
                     </div>
                     <div class="progress-row">
-                      <div class="progress-label"><span>Water level</span><span>74%</span></div>
-                      <div class="progress-bar"><span></span></div>
+                      <div class="progress-label">
+                        <span>Water level</span>
+                        <span id="waterPercent">74%</span>
+                      </div>
+                      <div class="progress-bar">
+                        <span id="waterBarFill" style="width: 74%;"></span>
+                      </div>
                     </div>
                     <svg class="plant-art" viewBox="0 0 170 150" fill="none" aria-hidden="true">
                       <path d="M92 132c0-26-1-61 8-88" stroke="#2E7D32" stroke-width="7" stroke-linecap="round"/>
@@ -138,12 +145,14 @@
                     </svg>
                   </div>
 
-                  <div class="plant-card scan-card">
+                  <div class="plant-card scan-card interactive-scan-card" id="mockupScanTrigger" title="Click to trigger new AI scan">
+                    <div class="scan-laser-line" id="scanLaser"></div>
                     <div class="plant-topline">
                       <div class="plant-title">
-                        <strong>AI Plant Scan</strong>
-                        <span>Instant identification results</span>
+                        <strong id="scanTitleText">AI Plant Scan</strong>
+                        <span id="scanSubText">Click to simulate photo scan 📸</span>
                       </div>
+                      <span class="pulse-dot"></span>
                     </div>
                     <div class="scan-result">
                       <div class="scan-badge" aria-hidden="true">
@@ -157,8 +166,8 @@
                         </svg>
                       </div>
                       <div class="scan-text">
-                        <strong>Calathea Orbifolia</strong>
-                        <span>Low-light friendly. Needs humid conditions and weekly care reminders.</span>
+                        <strong id="scanPlantName">Calathea Orbifolia</strong>
+                        <span id="scanPlantDesc">Low-light friendly. Needs humid conditions and weekly care reminders.</span>
                       </div>
                     </div>
                   </div>
@@ -170,14 +179,110 @@
       </div>
     </section>
 
+    <!-- Interactive Demo Playground Section -->
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Interactive AI Plant Care Playground</h2>
+          <p>Select a plant species below to test PlantPal’s real-time AI scanner, moisture diagnosis, and personalized schedule generation.</p>
+        </div>
+
+        <div class="demo-card reveal delay-1">
+          <div class="demo-plant-selector">
+            <button class="plant-select-btn active" data-plant="monstera">
+              <span class="icon">🌿</span>
+              <span>Monstera</span>
+            </button>
+            <button class="plant-select-btn" data-plant="calathea">
+              <span class="icon">🍃</span>
+              <span>Calathea</span>
+            </button>
+            <button class="plant-select-btn" data-plant="fiddle">
+              <span class="icon">🪴</span>
+              <span>Fiddle-Leaf</span>
+            </button>
+            <button class="plant-select-btn" data-plant="snake">
+              <span class="icon">🌵</span>
+              <span>Snake Plant</span>
+            </button>
+            <button class="plant-select-btn" data-plant="peace">
+              <span class="icon">🌸</span>
+              <span>Peace Lily</span>
+            </button>
+          </div>
+
+          <div class="demo-display-grid">
+            <div class="demo-visual-box">
+              <div class="demo-scanner-frame" id="demoScannerFrame">
+                <div class="scan-beam"></div>
+                <div class="plant-emoji-display" id="demoPlantEmoji">🌿</div>
+                <span class="scanner-badge" id="demoScanBadge">AI Match: 99.4%</span>
+              </div>
+              <button class="btn btn-primary scan-trigger-btn" id="runDemoScanBtn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                Scan Selected Plant Now
+              </button>
+            </div>
+
+            <div class="demo-details-box">
+              <div class="demo-header-info">
+                <h3 id="demoPlantTitle">Monstera Deliciosa (Swiss Cheese Plant)</h3>
+                <span class="tag-status healthy" id="demoHealthTag">Optimal Health</span>
+              </div>
+
+              <p class="demo-desc" id="demoPlantDesc">Famous for its dramatic natural leaf splits. Thrives in bright indirect light with moderate soil moisture.</p>
+
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="m-label">Moisture Level</span>
+                  <div class="m-bar-wrap">
+                    <div class="m-bar" id="demoMoistureBar" style="width: 78%;"></div>
+                  </div>
+                  <span class="m-val" id="demoMoistureVal">78% (Ideal)</span>
+                </div>
+
+                <div class="metric-item">
+                  <span class="m-label">Sunlight Match</span>
+                  <div class="m-bar-wrap">
+                    <div class="m-bar light" id="demoLightBar" style="width: 88%;"></div>
+                  </div>
+                  <span class="m-val" id="demoLightVal">Bright Indirect</span>
+                </div>
+              </div>
+
+              <div class="ai-tip-box">
+                <strong>💡 AI Recommendation:</strong>
+                <span id="demoAiTip">Rotate plant 90° clockwise every 2 weeks to ensure even leaf growth towards window.</span>
+              </div>
+
+              <div class="demo-actions-row">
+                <button class="btn btn-secondary interactive-act-btn" id="demoWaterAction">💧 Log Watering</button>
+                <button class="btn btn-secondary interactive-act-btn" id="demoRemindAction">⏰ Add Reminder</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filterable Features Section -->
     <section class="section" id="features">
       <div class="container">
         <div class="section-header reveal">
           <h2>Everything you need to care with confidence</h2>
-          <p>PlantPal combines computer vision, smart reminders, and practical plant health insights into one polished experience for plant lovers and busy beginners alike.</p>
+          <p>PlantPal combines computer vision, smart reminders, and practical plant health insights into one polished experience.</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card reveal delay-1">
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs reveal">
+          <button class="tab-btn active" data-filter="all">All Capabilities</button>
+          <button class="tab-btn" data-filter="ai">AI & Vision</button>
+          <button class="tab-btn" data-filter="care">Smart Care</button>
+          <button class="tab-btn" data-filter="health">Health & Disease</button>
+        </div>
+
+        <div class="feature-grid" id="featureGrid">
+          <article class="feature-card reveal delay-1" data-category="ai">
             <div class="icon-wrap" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2c2.5 3 4 5.2 4 8a4 4 0 1 1-8 0c0-2.8 1.5-5 4-8Z"/>
@@ -186,9 +291,11 @@
               </svg>
             </div>
             <h3>AI Plant Identification</h3>
-            <p>Scan any plant and identify its species instantly with accurate visual recognition.</p>
+            <p>Scan any plant and identify over 15,000 species instantly with 98.7% computer vision accuracy.</p>
+            <button class="feature-link-btn trigger-modal">Learn scanner specs →</button>
           </article>
-          <article class="feature-card reveal delay-2">
+
+          <article class="feature-card reveal delay-2" data-category="care">
             <div class="icon-wrap" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3v18"/>
@@ -198,9 +305,11 @@
               </svg>
             </div>
             <h3>Smart Care Reminders</h3>
-            <p>Receive watering, fertilizing, and pruning notifications at the right time.</p>
+            <p>Receive watering, fertilizing, and pruning notifications calibrated to your local weather and humidity.</p>
+            <button class="feature-link-btn trigger-modal">Explore schedules →</button>
           </article>
-          <article class="feature-card reveal delay-3">
+
+          <article class="feature-card reveal delay-3" data-category="health">
             <div class="icon-wrap" aria-hidden="true">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 19c2.5-7.5 5.2-11 8-11 3 0 4.6 2.8 8 9"/>
@@ -210,7 +319,46 @@
               </svg>
             </div>
             <h3>Disease Detection</h3>
-            <p>Detect plant diseases through AI image analysis and get treatment recommendations.</p>
+            <p>Detect early signs of yellowing, root rot, or pest infestations through AI image diagnostics and step-by-step remedies.</p>
+            <button class="feature-link-btn trigger-modal">See treatment guides →</button>
+          </article>
+
+          <article class="feature-card reveal delay-1" data-category="ai">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              </svg>
+            </div>
+            <h3>Light Level Sensor</h3>
+            <p>Use your phone's camera ambient light meter to check if your plant receives enough indirect sunlight.</p>
+            <button class="feature-link-btn trigger-modal">Test light meter →</button>
+          </article>
+
+          <article class="feature-card reveal delay-2" data-category="care">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1Z"/>
+              </svg>
+            </div>
+            <h3>Care History Log</h3>
+            <p>Keep a visual photo journal of your plants to track leaf growth, repotting dates, and progress history.</p>
+            <button class="feature-link-btn trigger-modal">View timeline →</button>
+          </article>
+
+          <article class="feature-card reveal delay-3" data-category="health">
+            <div class="icon-wrap" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Botanist Community</h3>
+            <p>Connect with plant experts and passionate indoor gardeners to ask questions and share propagation tips.</p>
+            <button class="feature-link-btn trigger-modal">Join community →</button>
           </article>
         </div>
       </div>
@@ -225,21 +373,21 @@
         <div class="process-grid">
           <div class="process-card reveal delay-1">
             <div class="process-steps">
-              <article class="process-step">
+              <article class="process-step clickable-step" data-step="1">
                 <div class="process-step-number">1</div>
                 <div>
                   <h3>Scan your plant</h3>
                   <p>Take a photo to identify the plant, surface health status, and get immediate care guidance.</p>
                 </div>
               </article>
-              <article class="process-step">
+              <article class="process-step clickable-step" data-step="2">
                 <div class="process-step-number">2</div>
                 <div>
                   <h3>Set smart routines</h3>
                   <p>Add watering, fertilizing, and pruning cycles that adapt to plant type and environment.</p>
                 </div>
               </article>
-              <article class="process-step">
+              <article class="process-step clickable-step" data-step="3">
                 <div class="process-step-number">3</div>
                 <div>
                   <h3>Track growth over time</h3>
@@ -270,10 +418,10 @@
               </div>
 
               <div class="process-pill-row" aria-label="Plant care tags">
-                <span class="process-pill">Weekly scan</span>
-                <span class="process-pill">Water in 2 days</span>
-                <span class="process-pill">Fertilize soon</span>
-                <span class="process-pill">Disease safe</span>
+                <span class="process-pill clickable-badge" data-toast="✨ Last scan: 2 hours ago (All clear)">Weekly scan</span>
+                <span class="process-pill clickable-badge" data-toast="💧 Water alert set for Thursday morning">Water in 2 days</span>
+                <span class="process-pill clickable-badge" data-toast="🌱 Organic fertilizer recommended next week">Fertilize soon</span>
+                <span class="process-pill clickable-badge" data-toast="🛡️ No pests or fungal spots detected">Disease safe</span>
               </div>
             </div>
           </aside>
@@ -285,7 +433,7 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-card reveal">
-            <div class="plant-room" aria-label="Illustration of indoor plants">
+            <div class="plant-room" id="interactivePlantRoom" title="Click to watch plant grow! 🌱" aria-label="Illustration of indoor plants">
               <div class="plant-scene">
                 <div class="stem"></div>
                 <div class="plant-leaf leaf-1"></div>
@@ -308,7 +456,7 @@
             <p>Whether you are managing a single desk plant or a growing indoor jungle, PlantPal helps you keep track of light, water, health changes, and seasonal routines without the guesswork.</p>
             <p>Designed with a premium SaaS feel, the experience blends warm nature-inspired visuals with practical tools that turn care into a calm daily habit.</p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#contact">Try PlantPal</a>
+              <button class="btn btn-primary trigger-modal">Try PlantPal Free</button>
               <a class="btn btn-secondary" href="#features">See Features</a>
             </div>
           </div>
@@ -316,29 +464,81 @@
       </div>
     </section>
 
-    <section class="section" id="contact">
+    <section class="section">
       <div class="container">
         <div class="section-header reveal">
           <h2>Trusted by plant lovers around the world</h2>
           <p>PlantPal helps users stay ahead of plant care with measurable results and a simple, delightful product experience.</p>
         </div>
         <div class="stats-grid">
-          <article class="stat-card reveal delay-1">
-            <span class="stat-value">10,000+</span>
+          <article class="stat-card reveal delay-1 counter-card">
+            <span class="stat-value" data-target="10000">10,000+</span>
             <span class="stat-label">Plants Identified</span>
           </article>
-          <article class="stat-card reveal delay-2">
-            <span class="stat-value">95%</span>
+          <article class="stat-card reveal delay-2 counter-card">
+            <span class="stat-value" data-target="98">98%</span>
             <span class="stat-label">User Satisfaction</span>
           </article>
-          <article class="stat-card reveal delay-3">
-            <span class="stat-value">1 Million+</span>
+          <article class="stat-card reveal delay-3 counter-card">
+            <span class="stat-value" data-target="1000000">1 Million+</span>
             <span class="stat-label">Care Reminders Sent</span>
           </article>
-          <article class="stat-card reveal delay-3">
-            <span class="stat-value">50+</span>
+          <article class="stat-card reveal delay-3 counter-card">
+            <span class="stat-value" data-target="50">50+</span>
             <span class="stat-label">Countries Using PlantPal</span>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2>Frequently Asked Questions</h2>
+          <p>Have questions about how PlantPal works? Find quick answers below.</p>
+        </div>
+
+        <div class="faq-accordion reveal delay-1">
+          <details class="faq-item">
+            <summary>
+              <span>How accurate is the AI plant scanner?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-content">
+              <p>PlantPal's neural vision model achieves over 98.7% accuracy across 15,000+ plant species, including succulents, tropical houseplants, and outdoor flowers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Can PlantPal diagnose diseased leaves?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-content">
+              <p>Yes! Take a photo of any discolored, spotted, or wilting leaves. The app analyzes symptoms and recommends targeted organic treatments, light adjustments, or soil care.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>Is PlantPal free to use?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-content">
+              <p>PlantPal offers a generous free tier with unlimited plant identification and watering schedules. Premium features include disease treatment plans and cloud history backup.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>How do watering reminders adjust automatically?</span>
+              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-content">
+              <p>Our app syncs with local weather APIs to track temperature, humidity, and rainfall, dynamically spacing out watering alerts during humid or cold periods.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -350,7 +550,7 @@
             <h2>Start Growing Smarter Today!</h2>
             <p>Join PlantPal and turn everyday plant care into an easy, intelligent routine with reminders, scans, and health insights.</p>
           </div>
-          <a class="btn btn-light" href="#home">Download Now</a>
+          <button class="btn btn-light trigger-modal">Get PlantPal Free</button>
         </div>
       </div>
     </section>
@@ -374,26 +574,27 @@
 
         <div class="footer-links" aria-label="Quick Links">
           <a href="#home">Home</a>
-          <a href="#about">About</a>
+          <a href="#demo">Live Demo</a>
           <a href="#features">Features</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
         </div>
 
         <div>
           <div class="social-links" aria-label="Social media links">
-            <a class="social-link" href="#" aria-label="Instagram">
+            <a class="social-link clickable-badge" data-toast="Follow @PlantPalApp on Instagram!" href="#" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="5"/>
                 <path d="M16.5 7.5h.01"/>
                 <path d="M7 12a5 5 0 1 0 10 0 5 5 0 0 0-10 0Z"/>
               </svg>
             </a>
-            <a class="social-link" href="#" aria-label="Facebook">
+            <a class="social-link clickable-badge" data-toast="Join PlantPal Community on Facebook!" href="#" aria-label="Facebook">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 8h3V4h-3c-2.2 0-4 1.8-4 4v3H7v4h3v9h4v-9h3l1-4h-4V8c0-.6.4-1 1-1Z"/>
               </svg>
             </a>
-            <a class="social-link" href="#" aria-label="LinkedIn">
+            <a class="social-link clickable-badge" data-toast="Connect with PlantPal team on LinkedIn!" href="#" aria-label="LinkedIn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M6.5 9.5V18"/>
                 <path d="M6.5 6.5v.1"/>
@@ -402,7 +603,7 @@
                 <rect x="3" y="3" width="18" height="18" rx="4"/>
               </svg>
             </a>
-            <a class="social-link" href="#" aria-label="Twitter">
+            <a class="social-link clickable-badge" data-toast="Follow @PlantPalApp on X (Twitter)!" href="#" aria-label="Twitter">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M22 5.5c-.8.4-1.7.7-2.6.8a4.5 4.5 0 0 0-7.7 4.1A12.8 12.8 0 0 1 3 4.9s-3 6.8 4 10.4c-1.6 1.1-3.4 1.8-5 2 1.5 4.4 5.6 5.7 9 5.5 7.9-.4 12.2-6.8 11.7-13v-.6c.8-.6 1.6-1.2 2.3-2Z"/>
               </svg>
@@ -414,5 +615,45 @@
     </div>
   </footer>
 
+  <!-- Interactive Get Started Modal -->
+  <div class="modal-overlay" id="appModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div class="modal-header">
+        <span class="brand-badge inline-badge">🌿</span>
+        <h3>Get Started with PlantPal</h3>
+        <p>Try the smart plant care app free for 14 days. No credit card required!</p>
+      </div>
+
+      <form class="modal-form" id="getStartedForm">
+        <div class="form-group">
+          <label for="userNameInput">Your Name</label>
+          <input type="text" id="userNameInput" placeholder="e.g. Ava Patel" required />
+        </div>
+        <div class="form-group">
+          <label for="userEmailInput">Email Address</label>
+          <input type="email" id="userEmailInput" placeholder="e.g. ava@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="plantCountSelect">How many plants do you have?</label>
+          <select id="plantCountSelect">
+            <option value="1-3">1 - 3 plants (Beginner)</option>
+            <option value="4-10" selected>4 - 10 plants (Enthusiast)</option>
+            <option value="10+">10+ plants (Indoor Jungle)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit-btn">✨ Launch My Smart Garden</button>
+      </form>
+
+      <div class="modal-footer-notes">
+        <span>Available on iOS, Android & Web</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html>
