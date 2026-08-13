@@ -200,11 +200,14 @@
 </head>
 <body>
 
-  <!-- Print Button Bar (Hidden when printing) -->
+  <!-- Print & Navigation Bar (Hidden when printing) -->
   <div class="no-print-bar">
-    <span>📄 ATS-Friendly Resume Preview (Upasana Roy)</span>
+    <a href="index.html" class="btn-print" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; background: #475569;">
+      🏠 Back to Portfolio
+    </a>
+    <span style="font-weight: 600;">📄 ATS-Friendly Resume Preview (Upasana Roy)</span>
     <div style="display: flex; gap: 10px; align-items: center;">
-      <a href="assets/resume.pdf" target="_blank" rel="noopener" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF File</a>
+      <a href="assets/resume.pdf" download="Upasana_Roy_Resume.pdf" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF File</a>
       <button onclick="window.print()" class="btn-print">🖨️ Print Page</button>
     </div>
   </div>
