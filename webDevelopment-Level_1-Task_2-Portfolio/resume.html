@@ -186,7 +186,7 @@
       body {
         background: white;
       }
-      .no-print-bar {
+      .no-print-bar, .no-print {
         display: none !important;
       }
       .resume-page {
@@ -205,9 +205,10 @@
     <a href="index.html" class="btn-print" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; background: #475569;">
       🏠 Back to Portfolio
     </a>
-    <span style="font-weight: 600;">📄 ATS-Friendly Resume Preview (Upasana Roy)</span>
-    <div style="display: flex; gap: 10px; align-items: center;">
-      <a href="assets/resume.pdf" download="Upasana_Roy_Resume.pdf" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF File</a>
+    <span style="font-weight: 600;">📄 ATS Resume &amp; PDF Viewer (Upasana Roy)</span>
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+      <a href="resume.pdf" target="_blank" class="btn-print" style="text-decoration: none; display: inline-block; background: #0EA5E9;">👁️ Open Raw PDF</a>
+      <a href="assets/resume.pdf" download="Upasana_Roy_Resume.pdf" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF</a>
       <button onclick="window.print()" class="btn-print">🖨️ Print Page</button>
     </div>
   </div>
@@ -322,13 +323,19 @@
       </div>
     </section>
 
-    <!-- Key Highlights / Achievements -->
-    <section>
-      <div class="section-title">Key Highlights</div>
-      <ul>
-        <li>Active Computer Science undergrad with strong knowledge in Data Structures, Object-Oriented Programming, and Web Engineering.</li>
-        <li>Passionate open-source contributor managing multiple full-stack and frontend repositories on GitHub.</li>
-      </ul>
+    <!-- Embedded PDF Document Viewer -->
+    <section style="margin-top: 30px; border-top: 2px dashed var(--border); padding-top: 20px;" class="no-print">
+      <div class="section-title">📄 Original PDF Document Preview</div>
+      <p style="margin-bottom: 12px; font-size: 9.5pt; color: var(--muted);">
+        Below is the embedded original PDF document (<strong>resume.pdf</strong>). If your browser does not support embedded PDF rendering, you can <a href="resume.pdf" target="_blank" style="color: var(--accent); font-weight: 600;">click here to view or download the raw PDF file</a>.
+      </p>
+      <div style="width: 100%; height: 750px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: #f1f5f9;">
+        <object data="resume.pdf" type="application/pdf" width="100%" height="100%">
+          <iframe src="resume.pdf" width="100%" height="100%" style="border: none;">
+            <p style="padding: 20px; text-align: center;">Your browser does not support embedded PDF viewing. <a href="resume.pdf" target="_blank">Click here to open/download resume.pdf</a>.</p>
+          </iframe>
+        </object>
+      </div>
     </section>
   </div>
 

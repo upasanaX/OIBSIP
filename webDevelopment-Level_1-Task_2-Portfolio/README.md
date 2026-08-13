@@ -26,12 +26,13 @@
 ```
 webDevelopment-Level_1-Task_2-Portfolio/
 ├── index.html              # Main interactive portfolio page
-├── resume.html             # ATS-friendly Web Resume page
+├── resume.html             # ATS-friendly Web Resume & PDF viewer page
+├── resume.pdf              # Full PDF Resume document (Portfolio root access)
 ├── style.css               # Comprehensive design system & custom CSS
-├── script.js              # Interactivity, typing effect, mobile nav & modals
+├── script.js               # Interactivity, typing effect, mobile nav & modals
 ├── README.md               # Task documentation
 └── assets/                 # Project assets & media
-    ├── resume.pdf          # Full PDF Resume document
+    ├── resume.pdf          # Full PDF Resume document (Assets folder backup)
     ├── avatar-placeholder.svg
     └── images/             # SVG previews for featured projects
 ```
