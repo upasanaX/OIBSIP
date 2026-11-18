@@ -329,6 +329,38 @@ def build():
             ]
         },
         {
+            "name": "Bharat ID — Digital Identity Management Platform & Edge Vault",
+            "url":  "https://github.com/Ishika14097/BharatID.git",
+            "tech": "React 19 · TypeScript · TanStack Start · Cloudflare Workers · Tailwind CSS",
+            "desc": [
+                "Digital identity management ecosystem storing personal IDs and credentials with cryptographic safety.",
+                "Deployed on Cloudflare Workers edge network using TanStack Start for sub-millisecond cold starts.",
+                "Integrated gateway for instant citizen access to essential public services and verification portals.",
+                "Live App: " + link("tanstack-start-app.bharatid-app.workers.dev", "https://tanstack-start-app.bharatid-app.workers.dev"),
+            ]
+        },
+        {
+            "name": "Health Insights (Medicare AI) — Clinical Healthcare Platform",
+            "url":  "https://github.com/Enu-code/healthcarehackathon.git",
+            "tech": "React · TypeScript · Tailwind CSS · Python · FastAPI · Gemini Vision · OpenCV",
+            "desc": [
+                "Built during a Healthcare Hackathon to assist patients and clinicians with automated diagnostic workflows.",
+                "Multimodal vision model decoding handwritten doctor prescriptions into structured dosages and drug interactions.",
+                "Clinical lab report PDF parser extracting vital biomarkers into interactive trend graphs with normal-range alerts.",
+                "Dermatological vision classifier for skin lesion screening and preliminary risk stratification.",
+            ]
+        },
+        {
+            "name": "Nayak Legal Tech — Adversarial Legal Analysis & Judicial Review",
+            "url":  "https://github.com/sramanpati48-hue/Nayak",
+            "tech": "Next.js · TypeScript · Python · FastAPI · Tailwind CSS · RESTful APIs",
+            "desc": [
+                "High-performance legal tech suite: Nayak (adversarial analysis engine) & NyayBandhu (citizen legal AI).",
+                "VicharakBandhu judicial review dashboard structuring case chronologies, issues, and bench memos.",
+                "Reactive Next.js frontend communicating with asynchronous Python FastAPI citation network backend.",
+            ]
+        },
+        {
             "name": "TripMate — AI-Powered Travel Companion",
             "url":  "https://github.com/upasanaX/TripMate-Modified",
             "tech": "TypeScript · React · Next.js · Gemini API · Google Maps API · Tailwind CSS",
@@ -420,12 +452,15 @@ def build():
         "<b>Smart India Hackathon 2026 (SIH2026)</b> — Participated as Full-Stack Lead with team "
         "TechBrats; built KrishiKavach AI agricultural platform under 36-hour hackathon sprint.", s))
     story.append(bullet_pt(
-        "<b>Open Source Contributor</b> — 6 public repositories on "
-        + link("GitHub", "https://github.com/upasanaX")
-        + " spanning AI, fintech, and web development; collectively starred by the community.", s))
+        "<b>Healthcare Hackathon &amp; Open Source</b> — Engineered Medicare AI (Health Insights) "
+        "and contributed to Bharat ID edge identity platform and Nayak Legal Tech architecture.", s))
+    story.append(bullet_pt(
+        "<b>Open Source Contributor</b> — Active on "
+        + link("GitHub (@upasanaX)", "https://github.com/upasanaX")
+        + " with 8+ repositories spanning AI, computer vision, fintech, and modern web systems.", s))
     story.append(bullet_pt(
         "<b>Two Internships Completed</b> — CodeAlpha (AI/CV) and Oasis Infobyte (Web Dev) with "
-        "deliverable projects merged into production repos.", s))
+        "production deliverables deployed and merged into public repositories.", s))
     story.append(bullet_pt(
         "<b>Live Deployed Portfolio</b> — Personal portfolio at "
         + link("portfolio-nine-rose-70.vercel.app", "https://portfolio-nine-rose-70.vercel.app")
