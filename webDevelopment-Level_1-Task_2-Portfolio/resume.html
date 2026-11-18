@@ -8,11 +8,13 @@
   <style>
     /* ATS-Friendly Print & Display CSS */
     :root {
-      --primary: #1E293B;
+      --primary: #0F172A;
       --accent: #2563EB;
+      --accent-dark: #1D4ED8;
       --text: #0F172A;
       --muted: #475569;
       --border: #CBD5E1;
+      --tag-bg: #F1F5F9;
     }
 
     * {
@@ -26,40 +28,41 @@
       color: var(--text);
       background-color: #F8FAFC;
       line-height: 1.45;
-      font-size: 10.5pt;
+      font-size: 10pt;
     }
 
     .resume-page {
-      max-width: 800px;
+      max-width: 820px;
       margin: 20px auto;
       background: #FFFFFF;
-      padding: 35px 45px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 36px 48px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       border-radius: 4px;
     }
 
     /* Print Header */
     header {
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 2.5px solid var(--primary);
       padding-bottom: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
     h1 {
-      font-size: 20pt;
-      font-weight: 700;
+      font-size: 21pt;
+      font-weight: 800;
       color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.8px;
       margin-bottom: 2px;
     }
 
     .subtitle {
-      font-size: 11pt;
-      font-weight: 600;
+      font-size: 10.5pt;
+      font-weight: 700;
       color: var(--accent);
       margin-bottom: 6px;
+      letter-spacing: 0.3px;
     }
 
     .contact-info {
@@ -68,12 +71,13 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
     }
 
     .contact-info a {
       color: var(--muted);
       text-decoration: none;
+      font-weight: 500;
     }
 
     .contact-info a:hover {
@@ -83,22 +87,30 @@
 
     /* Section Styling */
     section {
-      margin-bottom: 14px;
+      margin-bottom: 13px;
     }
 
     .section-title {
-      font-size: 11pt;
-      font-weight: 700;
+      font-size: 10.5pt;
+      font-weight: 800;
       color: var(--primary);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.6px;
+      border-bottom: 1.5px solid var(--border);
       padding-bottom: 3px;
       margin-bottom: 8px;
     }
 
-    /* Education */
-    .edu-item, .project-item {
+    /* Summary */
+    .summary-text {
+      font-size: 9.2pt;
+      color: #1E293B;
+      text-align: justify;
+      line-height: 1.45;
+    }
+
+    /* Education & Experience Items */
+    .edu-item, .exp-item, .project-item {
       margin-bottom: 8px;
     }
 
@@ -107,14 +119,14 @@
       justify-content: space-between;
       align-items: baseline;
       font-weight: 700;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: var(--primary);
     }
 
     .row-subtitle {
       display: flex;
       justify-content: space-between;
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: var(--muted);
       font-style: italic;
       margin-bottom: 3px;
@@ -123,9 +135,9 @@
     /* Skills Table */
     .skills-grid {
       display: grid;
-      grid-template-columns: 140px 1fr;
-      row-gap: 4px;
-      font-size: 9.5pt;
+      grid-template-columns: 145px 1fr;
+      row-gap: 3.5px;
+      font-size: 9.2pt;
     }
 
     .skill-label {
@@ -134,35 +146,36 @@
     }
 
     .skill-val {
-      color: var(--text);
+      color: #1E293B;
     }
 
     /* Bullet Lists */
     ul {
       list-style-type: disc;
-      margin-left: 18px;
-      font-size: 9.5pt;
+      margin-left: 17px;
+      font-size: 9pt;
     }
 
     li {
       margin-bottom: 3px;
-      color: var(--text);
+      color: #1E293B;
+      line-height: 1.4;
     }
 
     .tech-used {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--accent);
     }
 
     /* Action bar for Web view */
     .no-print-bar {
-      max-width: 800px;
+      max-width: 820px;
       margin: 15px auto 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 15px;
-      background: #1E293B;
+      padding: 10px 18px;
+      background: #0F172A;
       color: white;
       border-radius: 6px;
     }
@@ -171,11 +184,12 @@
       background: #2563EB;
       color: white;
       border: none;
-      padding: 8px 18px;
+      padding: 7px 16px;
       font-weight: 600;
       border-radius: 4px;
       cursor: pointer;
-      font-size: 9.5pt;
+      font-size: 9pt;
+      transition: background 0.2s;
     }
 
     .btn-print:hover {
@@ -191,7 +205,7 @@
       }
       .resume-page {
         margin: 0;
-        padding: 20px 30px;
+        padding: 20px 28px;
         box-shadow: none;
         max-width: 100%;
       }
@@ -202,13 +216,13 @@
 
   <!-- Print & Navigation Bar (Hidden when printing) -->
   <div class="no-print-bar">
-    <a href="index.html" class="btn-print" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; background: #475569;">
+    <a href="index.html" class="btn-print" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px; background: #334155;">
       🏠 Back to Portfolio
     </a>
-    <span style="font-weight: 600;">📄 ATS Resume &amp; PDF Viewer (Upasana Roy)</span>
-    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-      <a href="resume.pdf" target="_blank" class="btn-print" style="text-decoration: none; display: inline-block; background: #0EA5E9;">👁️ Open Raw PDF</a>
-      <a href="assets/resume.pdf" download="Upasana_Roy_Resume.pdf" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF</a>
+    <span style="font-weight: 600; font-size: 9.5pt;">📄 ATS-Optimized Resume • Upasana Roy</span>
+    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+      <a href="resume.pdf" target="_blank" class="btn-print" style="text-decoration: none; display: inline-block; background: #0284C7;">👁️ Open Raw PDF</a>
+      <a href="resume.pdf" download="Upasana_Roy_Resume.pdf" class="btn-print" style="text-decoration: none; display: inline-block;">📥 Download PDF</a>
       <button onclick="window.print()" class="btn-print">🖨️ Print Page</button>
     </div>
   </div>
@@ -216,7 +230,7 @@
   <div class="resume-page">
     <header>
       <h1>UPASANA ROY</h1>
-      <div class="subtitle">Computer Science Engineering Student &amp; Aspiring Software Engineer</div>
+      <div class="subtitle">Full Stack Web Developer &bull; Applied AI &amp; Computer Vision Enthusiast &bull; B.Tech CSE</div>
       <div class="contact-info">
         <span>📍 Kolkata, West Bengal</span>
         <span>📧 <a href="mailto:upasana2k25@gmail.com">upasana2k25@gmail.com</a></span>
@@ -224,6 +238,14 @@
         <span>🔗 <a href="https://www.linkedin.com/in/upasana-roy-170328202">linkedin.com/in/upasana-roy-170328202</a></span>
       </div>
     </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Undergraduate Computer Science &amp; Engineering student (2nd Year, RCCIIT Kolkata) and Full Stack Software Developer with core expertise in building high-throughput asynchronous web platforms, applied Computer Vision, and AI-driven solutions. Experienced in architecting real-time multi-object tracking pipelines (YOLOv8s + SORT over WebSockets at 30+ FPS), full-stack fintech applications with multi-currency atomic ledgers, and national hackathon platforms. Self-driven engineer dedicated to clean code, scalable architecture, and production craftsmanship.
+      </p>
+    </section>
 
     <!-- Education -->
     <section>
@@ -234,9 +256,12 @@
           <span>Kolkata, West Bengal</span>
         </div>
         <div class="row-subtitle">
-          <span>Bachelor of Technology (B.Tech) - Computer Science &amp; Engineering (2nd Year)</span>
+          <span>Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering</span>
           <span>2025 – 2029 (Expected)</span>
         </div>
+        <ul>
+          <li><strong>Coursework &amp; Fundamentals:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems, Computer Networks, Operating Systems, Web Technologies.</li>
+        </ul>
       </div>
     </section>
 
@@ -244,90 +269,121 @@
     <section>
       <div class="section-title">Technical Skills</div>
       <div class="skills-grid">
-        <div class="skill-label">Languages:</div>
-        <div class="skill-val">C, Java, Python, JavaScript (ES6+), TypeScript</div>
+        <div class="skill-label">Programming Languages:</div>
+        <div class="skill-val">TypeScript, JavaScript (ES6+), Python, C++, C, SQL, HTML5, CSS3, Bash</div>
 
-        <div class="skill-label">Frontend &amp; Frameworks:</div>
-        <div class="skill-val">HTML5, CSS3, React.js, Next.js, Tailwind CSS, Responsive Web Design</div>
+        <div class="skill-label">Frontend Development:</div>
+        <div class="skill-val">React 19, Next.js 16, Vite, Tailwind CSS v4, Radix UI, Recharts, Lucide Icons, Glassmorphism UI</div>
 
-        <div class="skill-label">Backend &amp; Database:</div>
-        <div class="skill-val">FastAPI, Python, RESTful APIs, MySQL, MongoDB</div>
+        <div class="skill-label">Backend &amp; Systems:</div>
+        <div class="skill-val">Node.js, Express.js, FastAPI, Flask, WebSockets, RESTful APIs, JWT Auth, Bcrypt</div>
 
-        <div class="skill-label">Tools &amp; Workflow:</div>
-        <div class="skill-val">Git, GitHub, VS Code, Postman, TanStack, Cloudflare Workers</div>
+        <div class="skill-label">AI, ML &amp; Computer Vision:</div>
+        <div class="skill-val">YOLOv8s Spatial Detection, OpenCV, PyTorch, Kalman Filters, SORT Tracking, Scikit-Learn, NLTK, Google Gemini AI, Web Speech API</div>
+
+        <div class="skill-label">Databases &amp; ORMs:</div>
+        <div class="skill-val">PostgreSQL, SQLite, Prisma ORM, Knex.js, SQLAlchemy</div>
+
+        <div class="skill-label">Tools &amp; Deployment:</div>
+        <div class="skill-val">Git, GitHub, Netlify, VS Code, Postman, Oxlint, Cloudflare Workers</div>
+      </div>
+    </section>
+
+    <!-- Work Experience & Internships -->
+    <section>
+      <div class="section-title">Work Experience &amp; Internships</div>
+
+      <!-- Exp 1: CodeAlpha AI Intern -->
+      <div class="exp-item">
+        <div class="row-header">
+          <span>CodeAlpha &mdash; Artificial Intelligence Intern</span>
+          <span>Remote &bull; 2026</span>
+        </div>
+        <div class="row-subtitle">
+          <span>Solo AI Software Engineer &bull; Applied AI, Computer Vision &amp; NLP</span>
+          <span>Repository: github.com/upasanaX/CodeAlpha_AI</span>
+        </div>
+        <ul>
+          <li><strong>TrackOptic AI (Computer Vision &amp; Tracking):</strong> Built a real-time object tracking suite combining YOLOv8s spatial inference with Kalman Filter motion state estimation and class-consistent SORT tracking, eliminating track identity switches.</li>
+          <li>Engineered a full-duplex WebSocket streaming pipeline delivering <strong>30+ FPS video processing</strong> with sub-50ms latency, virtual laser tripwire boundary flow counter, and multi-spectrum shaders (FLIR Thermal IR &amp; Tactical NVG).</li>
+          <li><strong>Coursemate AI &amp; LinguoFlow PRO (NLP &amp; Translation):</strong> Developed an intelligent FAQ bot using NLTK text normalization, TF-IDF cosine similarity scoring, and SQLite persistent KB with live admin retraining, plus a 24+ language neural translator with live speech-to-text dictation and Web Speech TTS synthesis.</li>
+        </ul>
+      </div>
+
+      <!-- Exp 2: Oasis Infobyte Web Dev Intern -->
+      <div class="exp-item">
+        <div class="row-header">
+          <span>Oasis Infobyte (OIBSIP) &mdash; Web Development Intern</span>
+          <span>Remote &bull; 2026</span>
+        </div>
+        <div class="row-subtitle">
+          <span>Frontend &amp; Web Applications Developer</span>
+          <span>Repository: github.com/upasanaX/OIBSIP</span>
+        </div>
+        <ul>
+          <li>Engineered production-grade responsive web applications including a modern dark-aesthetic glassmorphism personal portfolio, dynamic ATS-friendly resume engine, product landing page, and temperature converter tool.</li>
+          <li>Implemented clean semantic HTML5, modular Vanilla JavaScript (ES6+), CSS Grid/Flexbox layouts, and cross-browser responsiveness.</li>
+        </ul>
       </div>
     </section>
 
     <!-- Key Projects -->
     <section>
-      <div class="section-title">Projects</div>
+      <div class="section-title">Key Projects</div>
 
-      <!-- Project 1 -->
+      <!-- Project 1: GlobePay -->
       <div class="project-item">
         <div class="row-header">
-          <span>Nayak Legal Tech Platform</span>
-          <span>GitHub: sramanpati48-hue/Nayak</span>
+          <span>GlobePay &mdash; Global 1-Tap Payment Platform &amp; Multi-Currency Wallet</span>
+          <span>github.com/upasanaX/Globepay</span>
         </div>
         <ul>
-          <li>Architected a high-performance full-stack legal technology platform with modules (Nayak, NyayBandhu, VicharakBandhu) for automated adversarial analysis, case synthesis, and judicial review support.</li>
-          <li><span class="tech-used">Technologies Used:</span> Next.js, TypeScript, FastAPI, Python</li>
+          <li>Architected a global payment platform allowing 1-tap scan and pay with instant auto-currency exchange at live mid-market rates (0% foreign markup) across Tokyo, Paris, London, and Dubai.</li>
+          <li>Engineered multi-currency digital wallets (USD, EUR, GBP, JPY, INR, AED), virtual card issuance with 1-click freeze controls, and Knex/SQLite atomic transaction debits/credits.</li>
+          <li><span class="tech-used">Technologies:</span> React 18, TypeScript, Tailwind CSS, Node.js, Express, SQLite, Knex, JWT Auth, Bcrypt</li>
         </ul>
       </div>
 
-      <!-- Project 2 -->
+      <!-- Project 2: KrishiKavach -->
       <div class="project-item">
         <div class="row-header">
-          <span>GlobePay Frontend</span>
-          <span>GitHub: upasanaX/Globepay-frontend</span>
+          <span>KrishiKavach &mdash; Panchayat Agro-Meteorological Grid &amp; Direct Marketplace</span>
+          <span>github.com/upasanaX/SIH2026_TechBrats</span>
         </div>
         <ul>
-          <li>Developed a clean and responsive frontend interface for a digital payment platform with intuitive UX, responsive layouts, and cross-browser accessibility.</li>
-          <li><span class="tech-used">Technologies Used:</span> HTML5, CSS3, JavaScript</li>
+          <li>Developed national digital agriculture platform for Smart India Hackathon downscaling 25 km broad weather forecasts into <strong>2.5 km Panchayat micro-grids</strong> via spatial XGBoost residual modeling.</li>
+          <li>Implemented 6–12h proactive disaster alerts against cloudbursts, direct farmer-to-consumer marketplace with transparent pricing, and tri-channel accessibility (React 19 Web App, 2G SMS, multilingual IVR voice synthesis in English, Hindi, Bengali).</li>
+          <li><span class="tech-used">Technologies:</span> React 19, TypeScript, Vite, Tailwind CSS v4, Recharts, FastAPI, Web Speech API</li>
         </ul>
       </div>
 
-      <!-- Project 3 -->
+      <!-- Project 3: TripMate -->
       <div class="project-item">
         <div class="row-header">
-          <span>TripMate – Travel Application</span>
-          <span>Live Demo: travel-app-showcase.vercel.app</span>
+          <span>TripMate &mdash; AI-Powered Travel Discovery &amp; Itinerary Planner</span>
+          <span>github.com/upasanaX/TripMate-Modified</span>
         </div>
         <ul>
-          <li>Built a modern travel planning application enabling seamless destination discovery, organized trip management, and clean user experience.</li>
-          <li><span class="tech-used">Technologies Used:</span> React, JavaScript, CSS, Vercel</li>
-        </ul>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="project-item">
-        <div class="row-header">
-          <span>Bharat ID</span>
-          <span>Live Demo: tanstack-start-app.bharatid-app.workers.dev</span>
-        </div>
-        <ul>
-          <li>Engineered an all-in-one digital identity management platform for secure personal ID storage and instant access to public services.</li>
-          <li><span class="tech-used">Technologies Used:</span> React, TypeScript, TanStack, Cloudflare Workers</li>
-        </ul>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="project-item">
-        <div class="row-header">
-          <span>Health Insights</span>
-          <span>GitHub: Enu-code/healthcarehackathon</span>
-        </div>
-        <ul>
-          <li>Designed an AI-powered healthcare web app featuring lab report analysis, prescription decoding, skin diagnostics, and health summary dashboards.</li>
-          <li><span class="tech-used">Technologies Used:</span> React (Vite), Tailwind CSS, JavaScript</li>
+          <li>Built an intelligent travel planning platform featuring generative day-by-day itineraries powered by Google Gemini AI &amp; Groq, interactive geolocation via Google Maps and OpenWeather forecasts.</li>
+          <li><span class="tech-used">Technologies:</span> Next.js 16, TypeScript, PostgreSQL, Prisma ORM, Google Gemini AI, Groq, Tailwind CSS, Radix UI</li>
         </ul>
       </div>
     </section>
 
+    <!-- Key Highlights & Honors -->
+    <section>
+      <div class="section-title">Achievements &amp; Activities</div>
+      <ul>
+        <li><strong>Smart India Hackathon (SIH 2026):</strong> Core frontend and systems developer for Team TechBrats building national-scale agriculture resilience technology.</li>
+        <li><strong>Open Source Contributor:</strong> Active open source maintainer on GitHub (<code>@upasanaX</code>) contributing full-stack architectures, vision pipelines, and developer tooling.</li>
+      </ul>
+    </section>
+
     <!-- Embedded PDF Document Viewer -->
-    <section style="margin-top: 30px; border-top: 2px dashed var(--border); padding-top: 20px;" class="no-print">
+    <section style="margin-top: 24px; border-top: 2px dashed var(--border); padding-top: 16px;" class="no-print">
       <div class="section-title">📄 Original PDF Document Preview</div>
-      <p style="margin-bottom: 12px; font-size: 9.5pt; color: var(--muted);">
-        Below is the embedded original PDF document (<strong>resume.pdf</strong>). If your browser does not support embedded PDF rendering, you can <a href="resume.pdf" target="_blank" style="color: var(--accent); font-weight: 600;">click here to view or download the raw PDF file</a>.
+      <p style="margin-bottom: 10px; font-size: 9pt; color: var(--muted);">
+        Below is the embedded downloadable PDF document (<strong>resume.pdf</strong>). If your browser does not support embedded PDF rendering, you can <a href="resume.pdf" target="_blank" style="color: var(--accent); font-weight: 600;">click here to view or download resume.pdf</a>.
       </p>
       <div style="width: 100%; height: 750px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: #f1f5f9;">
         <object data="resume.pdf" type="application/pdf" width="100%" height="100%">

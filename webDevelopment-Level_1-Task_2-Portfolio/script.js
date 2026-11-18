@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
      ------------------------------------------------------------------------ */
   const typingTextElement = document.getElementById('typing-text');
   const phrases = [
-    'Software Engineer',
-    'Frontend Developer',
-    'CSE Student',
-    'Problem Solver'
+    'Full Stack Web Developer',
+    'AI & Computer Vision Enthusiast',
+    'B.Tech CSE Undergrad @ RCCIIT',
+    'Problem Solver & Tech Explorer'
   ];
 
   let phraseIndex = 0;

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#062A14"/>
+      <stop offset="50%" stop-color="#0D4722"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <filter id="kkGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#kkBg)"/>
+  
+  <circle cx="480" cy="80" r="120" fill="#10B981" opacity="0.1"/>
+  <circle cx="120" cy="300" r="140" fill="#059669" opacity="0.12"/>
+
+  <!-- Main Container -->
+  <rect x="45" y="35" width="510" height="310" rx="12" fill="#0F2818" stroke="#10B981" stroke-width="1.5" opacity="0.95" filter="url(#kkGlow)"/>
+
+  <!-- Header -->
+  <rect x="45" y="35" width="510" height="40" rx="12" fill="#061A0F"/>
+  <circle cx="68" cy="55" r="5" fill="#EF4444"/>
+  <circle cx="84" cy="55" r="5" fill="#F59E0B"/>
+  <circle cx="100" cy="55" r="5" fill="#10B981"/>
+  <text x="300" y="60" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="14" font-weight="700" text-anchor="middle">KrishiKavach • Hyperlocal Agro Grid &amp; Market</text>
+
+  <!-- Left Card: Weather Micro-Grid -->
+  <rect x="65" y="90" width="225" height="145" rx="8" fill="#0A341B" stroke="#10B981" stroke-width="1"/>
+  <text x="80" y="115" fill="#A7F3D0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Panchayat Micro-Grid: 2.5 km</text>
+  <text x="80" y="135" fill="#6EE7B7" font-family="Segoe UI, sans-serif" font-size="10">Downscaled XGBoost Weather Engine</text>
+  
+  <text x="80" y="175" fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="28" font-weight="800">27.4°C</text>
+  <text x="180" y="175" fill="#FDE047" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">88% Rain</text>
+  
+  <rect x="80" y="195" width="195" height="26" rx="4" fill="#991B1B"/>
+  <text x="177" y="212" fill="#FEE2E2" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Cloudburst Alert (Next 6h)</text>
+
+  <!-- Right Card: Direct Marketplace -->
+  <rect x="310" y="90" width="225" height="145" rx="8" fill="#0A341B" stroke="#10B981" stroke-width="1"/>
+  <text x="325" y="115" fill="#A7F3D0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Farmer-To-Consumer Market</text>
+  <text x="325" y="135" fill="#6EE7B7" font-family="Segoe UI, sans-serif" font-size="10">0% Middleman Margin</text>
+  
+  <!-- Market Item Rows -->
+  <rect x="325" y="150" width="195" height="32" rx="4" fill="#061A0F"/>
+  <text x="335" y="170" fill="#F9FAFB" font-family="Segoe UI, sans-serif" font-size="11">Basmati Rice (10kg)</text>
+  <text x="480" y="170" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">Rs 640</text>
+
+  <rect x="325" y="190" width="195" height="32" rx="4" fill="#061A0F"/>
+  <text x="335" y="210" fill="#F9FAFB" font-family="Segoe UI, sans-serif" font-size="11">Fresh Organic Potato</text>
+  <text x="480" y="210" fill="#34D399" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">Rs 22/kg</text>
+
+  <!-- Bottom Multichannel Dispatch -->
+  <rect x="65" y="250" width="470" height="80" rx="8" fill="#061A0F" stroke="#059669" stroke-width="1"/>
+  <text x="80" y="275" fill="#A7F3D0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Tri-Channel Accessibility Dispatch</text>
+  <rect x="80" y="290" width="135" height="26" rx="4" fill="#0A341B"/>
+  <text x="147" y="307" fill="#D1FAE5" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" text-anchor="middle">React 19 Web App</text>
+  <rect x="230" y="290" width="135" height="26" rx="4" fill="#0A341B"/>
+  <text x="297" y="307" fill="#D1FAE5" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" text-anchor="middle">2G Cellular SMS</text>
+  <rect x="380" y="290" width="140" height="26" rx="4" fill="#0A341B"/>
+  <text x="450" y="307" fill="#D1FAE5" font-family="Segoe UI, sans-serif" font-size="10" font-weight="600" text-anchor="middle">IVR Voice Synthesis</text>
+</svg>
