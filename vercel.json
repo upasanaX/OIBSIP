@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/", "destination": "/webDevelopment-Level_1-Task_2-Portfolio/index.html" },
+    { "source": "/resume.pdf", "destination": "/webDevelopment-Level_1-Task_2-Portfolio/resume.pdf" },
+    { "source": "/resume.html", "destination": "/webDevelopment-Level_1-Task_2-Portfolio/resume.html" },
+    { "source": "/(.*)", "destination": "/webDevelopment-Level_1-Task_2-Portfolio/$1" }
+  ]
+}

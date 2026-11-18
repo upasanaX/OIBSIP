@@ -1,0 +1,7 @@
+[build]
+  publish = "webDevelopment-Level_1-Task_2-Portfolio"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
